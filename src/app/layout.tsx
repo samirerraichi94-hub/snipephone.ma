@@ -3,14 +3,14 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Snipe Phone — Find your solution',
+    default: 'Snipe Phone — Trouvez votre solution',
     template: '%s | Snipe Phone',
   },
   description:
     'Snipe Phone — Votre spécialiste en téléphones, accessoires, PC, laptops, tablettes et caméras de surveillance à Temara, Maroc.',
   keywords: ['téléphone', 'smartphone', 'accessoires', 'PC', 'laptop', 'tablette', 'Temara', 'Maroc'],
   openGraph: {
-    title: 'Snipe Phone — Find your solution',
+    title: 'Snipe Phone — Trouvez votre solution',
     description: 'Votre spécialiste tech à Temara, Maroc',
     locale: 'fr_MA',
     type: 'website',

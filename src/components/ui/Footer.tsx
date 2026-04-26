@@ -21,7 +21,7 @@ export function Footer() {
             <h2 className="text-2xl font-bold text-white font-heading mb-2">
               Snipe<span className="text-[#E8691A]">Phone</span>
             </h2>
-            <p className="text-sm text-gray-400 mb-4">Find your solution</p>
+            <p className="text-sm text-gray-400 mb-4">Trouvez votre solution</p>
             <p className="text-sm text-gray-400">
               Votre spécialiste en téléphones, accessoires, PC, tablettes et caméras de surveillance à Temara.
             </p>

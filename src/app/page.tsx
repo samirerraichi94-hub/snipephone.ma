@@ -41,7 +41,7 @@ export default async function HomePage() {
               🎯 Votre tech store à Temara
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Find Your{' '}
+              Trouvez Votre{' '}
               <span className="text-[#E8691A]">Solution</span>
             </h1>
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">

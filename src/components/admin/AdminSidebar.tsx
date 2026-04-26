@@ -6,7 +6,7 @@ import { LayoutDashboard, Package, Tag, FileText, LogOut, ExternalLink } from 'l
 import { createClient } from '@/lib/supabase/client'
 
 const navItems = [
-  { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, exact: true },
+  { href: '/admin', label: 'Tableau de bord', icon: LayoutDashboard, exact: true },
   { href: '/admin/products', label: 'Produits', icon: Package },
   { href: '/admin/categories', label: 'Catégories', icon: Tag },
   { href: '/admin/articles', label: 'Articles', icon: FileText },
