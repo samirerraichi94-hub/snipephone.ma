@@ -19,15 +19,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <div className="bg-white rounded-xl p-2 inline-block mb-4 shadow-lg">
-              <Image
-                src="/logo.png"
-                alt="Snipe Phone"
-                width={160}
-                height={60}
-                className="h-14 w-auto object-contain"
-              />
-            </div>
+            <Image
+              src="/logo-black.png"
+              alt="Snipe Phone"
+              width={160}
+              height={60}
+              className="h-16 w-auto object-contain mb-4"
+              style={{ mixBlendMode: 'screen' }}
+            />
             <p className="text-sm text-gray-400">
               Votre spécialiste en téléphones, accessoires, PC, tablettes et caméras de surveillance à Temara.
             </p>

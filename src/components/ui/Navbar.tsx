@@ -24,16 +24,15 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="bg-white rounded-xl px-2 py-1.5 shadow-md hover:shadow-orange-500/20 transition-shadow">
-              <Image
-                src="/logo.png"
-                alt="Snipe Phone"
-                width={140}
-                height={48}
-                className="h-11 w-auto object-contain"
-                priority
-              />
-            </div>
+            <Image
+              src="/logo-black.png"
+              alt="Snipe Phone"
+              width={150}
+              height={56}
+              className="h-14 w-auto object-contain"
+              style={{ mixBlendMode: 'screen' }}
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
