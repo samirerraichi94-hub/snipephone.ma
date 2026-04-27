@@ -35,27 +35,35 @@ export default async function HomePage() {
   return (
     <PublicLayout>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-[#0f172a] via-[#1a2340] to-[#0f172a] text-white overflow-hidden" style={{ minHeight: '90vh', display: 'flex', alignItems: 'center' }}>
-        {/* Background glows */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#E8691A]/8 rounded-full blur-[140px]" />
-          <div className="absolute left-0 bottom-0 w-[400px] h-[400px] bg-[#E8691A]/5 rounded-full blur-[100px]" />
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, rgba(232,105,26,0.06) 0%, transparent 60%)' }} />
-        </div>
+      <section
+        className="relative text-white overflow-hidden"
+        style={{
+          minHeight: '92vh',
+          backgroundImage: 'url(/hero-bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        {/* Subtle dark overlay on the left so text stays readable */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(90deg, rgba(10,15,30,0.75) 0%, rgba(10,15,30,0.4) 55%, transparent 100%)' }} />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-16 items-center w-full">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-8 items-center w-full">
+
           {/* LEFT — text */}
           <div className="hero-fade-in">
-            <span className="inline-flex items-center gap-2 bg-[#E8691A]/15 text-[#E8691A] text-sm font-semibold px-5 py-2 rounded-full mb-6 border border-[#E8691A]/25 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 bg-[#E8691A]/20 text-[#E8691A] text-sm font-semibold px-5 py-2 rounded-full mb-6 border border-[#E8691A]/30">
               🎯 Votre tech store à Temara
             </span>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Trouvez Votre{' '}
-              <span className="text-[#E8691A]" style={{ textShadow: '0 0 40px rgba(232,105,26,0.4)' }}>
+              <span className="text-[#E8691A]" style={{ textShadow: '0 0 40px rgba(232,105,26,0.5)' }}>
                 Solution
               </span>
             </h1>
-            <p className="text-gray-400 text-lg mb-10 leading-relaxed max-w-xl">
+            <p className="text-gray-300 text-lg mb-10 leading-relaxed max-w-lg">
               Smartphones, accessoires, PC, tablettes, caméras de surveillance — tout ce dont vous avez besoin, disponible à Temara.
             </p>
             <div className="flex flex-wrap gap-4 mb-12">
@@ -69,7 +77,7 @@ export default async function HomePage() {
                 href="https://wa.me/212648045594"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 border-white/25 text-white px-8 py-4 rounded-2xl font-bold text-base hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+                className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl font-bold text-base hover:bg-white/10 hover:border-white/60 transition-all duration-300"
               >
                 Nous contacter
               </a>
@@ -86,83 +94,40 @@ export default async function HomePage() {
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-[#E8691A]">{stat.value}</p>
-                    <p className="text-gray-500 text-sm">{stat.label}</p>
+                    <p className="text-gray-400 text-sm">{stat.label}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* RIGHT — cinematic logo + floating products */}
-          <div className="hidden lg:flex justify-center items-center">
-            <div className="relative flex items-center justify-center" style={{ width: '500px', height: '500px' }}>
-
-              {/* Cinematic ambient glow */}
-              <div className="absolute inset-0 rounded-full" style={{
-                background: 'radial-gradient(ellipse at center, rgba(232,105,26,0.28) 0%, rgba(232,105,26,0.08) 45%, transparent 72%)'
-              }} />
-
-              {/* Single ring only */}
-              <div className="absolute rounded-full hero-glow-ring" style={{
-                inset: '35px',
-                border: '1.5px solid rgba(232,105,26,0.55)',
-                boxShadow: '0 0 55px rgba(232,105,26,0.45), 0 0 110px rgba(232,105,26,0.12), inset 0 0 55px rgba(232,105,26,0.04)'
-              }} />
-
-              {/* Logo — transparent bg, slight tilt, cinematic shadow */}
-              <div className="relative z-10" style={{ transform: 'rotate(-5deg)' }}>
-                <div style={{
-                  filter: 'drop-shadow(0 0 28px rgba(232,105,26,0.55)) drop-shadow(0 35px 55px rgba(0,0,0,0.65))',
-                  borderRadius: '20px',
-                  overflow: 'hidden'
-                }}>
-                  <Image src="/logo.png" alt="Snipe Phone" width={210} height={210}
-                    className="object-contain" priority style={{ display: 'block', borderRadius: '20px' }} />
-                </div>
-                {/* Shadow / glow puddle below logo */}
-                <div className="absolute left-1/2 -translate-x-1/2" style={{
-                  bottom: '-14px', width: '140px', height: '18px',
-                  background: 'rgba(232,105,26,0.38)', borderRadius: '50%', filter: 'blur(14px)'
-                }} />
-              </div>
-
-              {/* Phone — right, tilted */}
-              <div className="absolute hero-float" style={{
-                right: '10px', top: '38%',
-                transform: 'rotate(10deg)',
-                background: 'linear-gradient(145deg, #1e2d50, #0f172a)',
-                border: '1px solid rgba(232,105,26,0.22)',
-                borderRadius: '20px', padding: '18px',
-                boxShadow: '0 30px 55px rgba(0,0,0,0.65), 0 0 22px rgba(232,105,26,0.12), inset 0 1px 0 rgba(255,255,255,0.04)'
-              }}>
-                <Smartphone size={42} style={{ color: '#E8691A', filter: 'drop-shadow(0 0 8px rgba(232,105,26,0.5))' }} />
-              </div>
-
-              {/* Laptop — bottom, flat */}
-              <div className="absolute hero-float-2" style={{
-                bottom: '18px', left: '50%', transform: 'translateX(-55%)',
-                background: 'linear-gradient(145deg, #1e2d50, #0f172a)',
-                border: '1px solid rgba(232,105,26,0.22)',
-                borderRadius: '20px', padding: '18px',
-                boxShadow: '0 30px 55px rgba(0,0,0,0.65), 0 0 22px rgba(232,105,26,0.12), inset 0 1px 0 rgba(255,255,255,0.04)'
-              }}>
-                <Laptop size={46} style={{ color: '#E8691A', filter: 'drop-shadow(0 0 8px rgba(232,105,26,0.5))' }} />
-              </div>
-
-              {/* Headphones — left, tilted opposite */}
-              <div className="absolute hero-float-3" style={{
-                left: '10px', top: '36%',
-                transform: 'rotate(-8deg)',
-                background: 'linear-gradient(145deg, #1e2d50, #0f172a)',
-                border: '1px solid rgba(232,105,26,0.22)',
-                borderRadius: '20px', padding: '18px',
-                boxShadow: '0 30px 55px rgba(0,0,0,0.65), 0 0 22px rgba(232,105,26,0.12), inset 0 1px 0 rgba(255,255,255,0.04)'
-              }}>
-                <Headphones size={42} style={{ color: '#E8691A', filter: 'drop-shadow(0 0 8px rgba(232,105,26,0.5))' }} />
-              </div>
-
+          {/* RIGHT — products image + small logo above */}
+          <div className="relative flex items-end justify-center lg:justify-end mt-10 lg:mt-0">
+            {/* Small logo — top-left of the products, not centered */}
+            <div className="absolute top-0 left-4 lg:left-8 z-10" style={{ width: '110px' }}>
+              <Image
+                src="/hero-logo.png"
+                alt="Snipe Phone"
+                width={110}
+                height={110}
+                className="object-contain w-full"
+                style={{ mixBlendMode: 'screen' }}
+                priority
+              />
             </div>
+
+            {/* Products — main visual element */}
+            <Image
+              src="/hero-products.png"
+              alt="Nos produits"
+              width={760}
+              height={520}
+              className="object-contain w-full max-w-xl lg:max-w-2xl hero-float"
+              style={{ mixBlendMode: 'screen', filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.5))' }}
+              priority
+            />
           </div>
+
         </div>
       </section>
 
