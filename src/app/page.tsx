@@ -97,26 +97,24 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* RIGHT — logo with glow ring */}
+          {/* RIGHT — logo avec fond noir, screen blend */}
           <div className="hidden lg:flex items-center justify-center hero-fade-in">
             <div className="relative flex items-center justify-center">
-              {/* Animated glow ring */}
-              <div className="absolute w-80 h-80 rounded-full hero-glow-ring"
-                style={{ border: '2px solid rgba(232,105,26,0.3)', boxShadow: '0 0 60px rgba(232,105,26,0.2), inset 0 0 60px rgba(232,105,26,0.05)' }} />
-              <div className="absolute w-96 h-96 rounded-full"
-                style={{ border: '1px solid rgba(232,105,26,0.1)' }} />
-              {/* Logo card */}
-              <div className="relative z-10 bg-white rounded-3xl p-6 shadow-2xl hero-float"
-                style={{ boxShadow: '0 25px 80px rgba(232,105,26,0.25), 0 0 0 1px rgba(232,105,26,0.1)' }}>
-                <Image
-                  src="/logo.png"
-                  alt="Snipe Phone"
-                  width={220}
-                  height={220}
-                  className="object-contain"
-                  priority
-                />
-              </div>
+              {/* Glow ring animé */}
+              <div className="absolute w-[420px] h-[420px] rounded-full hero-glow-ring"
+                style={{ border: '2px solid rgba(232,105,26,0.25)', boxShadow: '0 0 80px rgba(232,105,26,0.15), inset 0 0 80px rgba(232,105,26,0.05)' }} />
+              <div className="absolute w-[500px] h-[500px] rounded-full"
+                style={{ border: '1px solid rgba(232,105,26,0.08)' }} />
+              {/* Logo — fond noir disparaît avec screen */}
+              <Image
+                src="/logo.png"
+                alt="Snipe Phone"
+                width={420}
+                height={420}
+                className="object-contain hero-float relative z-10"
+                style={{ mixBlendMode: 'screen', filter: 'drop-shadow(0 0 40px rgba(232,105,26,0.4))' }}
+                priority
+              />
             </div>
           </div>
 
