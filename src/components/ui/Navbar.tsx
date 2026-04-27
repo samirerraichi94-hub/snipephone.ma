@@ -21,15 +21,15 @@ export function Navbar() {
   return (
     <nav className="bg-[#1a2340] shadow-lg sticky top-0 z-50 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-28">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/logo-black.png"
               alt="Snipe Phone"
-              width={150}
-              height={56}
-              className="h-14 w-auto object-contain"
+              width={260}
+              height={100}
+              className="h-24 w-auto object-contain"
               style={{ mixBlendMode: 'screen' }}
               priority
             />
