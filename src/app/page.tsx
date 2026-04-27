@@ -99,23 +99,17 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* RIGHT — logo screen blend */}
-          <div className="hidden lg:flex items-center justify-center">
-            <div className="relative flex items-center justify-center">
-              <div className="absolute w-[380px] h-[380px] rounded-full hero-glow-ring"
-                style={{ border: '1.5px solid rgba(232,105,26,0.3)', boxShadow: '0 0 100px rgba(232,105,26,0.12)' }} />
-              <div className="absolute w-[460px] h-[460px] rounded-full"
-                style={{ border: '1px solid rgba(232,105,26,0.07)' }} />
-              <Image
-                src="/logo-black.png"
-                alt="Snipe Phone"
-                width={500}
-                height={500}
-                className="object-contain hero-float relative z-10"
-                style={{ mixBlendMode: 'screen', filter: 'drop-shadow(0 0 60px rgba(232,105,26,0.5))' }}
-                priority
-              />
-            </div>
+          {/* RIGHT — products image */}
+          <div className="hidden lg:flex items-center justify-end">
+            <Image
+              src="/products-hero.png"
+              alt="Nos produits"
+              width={780}
+              height={560}
+              className="object-contain w-full hero-float"
+              style={{ mixBlendMode: 'screen' }}
+              priority
+            />
           </div>
 
         </div>
