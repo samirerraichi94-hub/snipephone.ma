@@ -61,10 +61,7 @@ export default async function HomePage() {
             <div className="flex flex-wrap gap-4 mb-12">
               <Link
                 href="/products"
-                className="group bg-[#E8691A] text-white px-8 py-4 rounded-2xl font-bold text-base flex items-center gap-2 transition-all duration-300 hover:bg-orange-500 hover:scale-105"
-                style={{ boxShadow: '0 0 0 rgba(232,105,26,0)' }}
-                onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 0 30px rgba(232,105,26,0.5)')}
-                onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 0 0 rgba(232,105,26,0)')}
+                className="group btn-glow bg-[#E8691A] text-white px-8 py-4 rounded-2xl font-bold text-base flex items-center gap-2 transition-all duration-300 hover:bg-orange-500 hover:scale-105"
               >
                 Voir les produits <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
