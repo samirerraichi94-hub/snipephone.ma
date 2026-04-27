@@ -35,23 +35,18 @@ export default async function HomePage() {
   return (
     <PublicLayout>
       {/* Hero */}
-      <section className="relative text-white overflow-hidden" style={{ minHeight: '92vh', background: '#0a0f1e' }}>
-        {/* Background image — shifted right so its baked-in text stays hidden under overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'url(/hero-bg.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: '65% center',
-          }}
-        />
-        {/* Strong dark overlay — hides bg text on left, fades out on right */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(90deg, rgba(10,15,30,0.97) 0%, rgba(10,15,30,0.92) 40%, rgba(10,15,30,0.5) 65%, rgba(10,15,30,0.1) 100%)' }}
-        />
+      <section
+        className="relative text-white overflow-hidden flex items-center"
+        style={{ minHeight: '92vh', background: 'linear-gradient(135deg, #0a0f1e 0%, #111828 60%, #0f1a2e 100%)' }}
+      >
+        {/* Subtle orange glow top-right */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle at 70% 30%, rgba(232,105,26,0.12) 0%, transparent 70%)' }} />
+        {/* Subtle orange glow bottom-left */}
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle at 30% 80%, rgba(232,105,26,0.07) 0%, transparent 70%)' }} />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-8 items-center w-full" style={{ minHeight: '92vh' }}>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center w-full">
 
           {/* LEFT — text */}
           <div className="hero-fade-in">
@@ -102,17 +97,27 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* RIGHT — products floating */}
-          <div className="hidden lg:flex items-center justify-end">
-            <Image
-              src="/hero-products.png"
-              alt="Nos produits"
-              width={700}
-              height={500}
-              className="object-contain w-full max-w-2xl hero-float"
-              style={{ mixBlendMode: 'screen', filter: 'drop-shadow(0 40px 80px rgba(232,105,26,0.3))' }}
-              priority
-            />
+          {/* RIGHT — logo with glow ring */}
+          <div className="hidden lg:flex items-center justify-center hero-fade-in">
+            <div className="relative flex items-center justify-center">
+              {/* Animated glow ring */}
+              <div className="absolute w-80 h-80 rounded-full hero-glow-ring"
+                style={{ border: '2px solid rgba(232,105,26,0.3)', boxShadow: '0 0 60px rgba(232,105,26,0.2), inset 0 0 60px rgba(232,105,26,0.05)' }} />
+              <div className="absolute w-96 h-96 rounded-full"
+                style={{ border: '1px solid rgba(232,105,26,0.1)' }} />
+              {/* Logo card */}
+              <div className="relative z-10 bg-white rounded-3xl p-6 shadow-2xl hero-float"
+                style={{ boxShadow: '0 25px 80px rgba(232,105,26,0.25), 0 0 0 1px rgba(232,105,26,0.1)' }}>
+                <Image
+                  src="/logo.png"
+                  alt="Snipe Phone"
+                  width={220}
+                  height={220}
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </div>
           </div>
 
         </div>
