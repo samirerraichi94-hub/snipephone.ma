@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { createClient } from '@/lib/supabase/server'
 import { ProductCard } from '@/components/ui/ProductCard'
 import { PublicLayout } from '@/components/layouts/PublicLayout'
-import { ChevronRight, Smartphone, Headphones, Laptop, Tablet, Camera, Wrench, Tv, Star, ShieldCheck, Truck } from 'lucide-react'
+import { ChevronRight, Smartphone, Headphones, Laptop, Tablet, Camera, Wrench, Tv, Star, ShieldCheck } from 'lucide-react'
 import type { Product, Category } from '@/types'
 
 const fallbackIcons: Record<string, React.ReactNode> = {
