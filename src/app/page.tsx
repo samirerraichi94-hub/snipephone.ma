@@ -93,42 +93,74 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* RIGHT — glowing ring + logo + floating icons */}
+          {/* RIGHT — cinematic logo + floating products */}
           <div className="hidden lg:flex justify-center items-center">
             <div className="relative flex items-center justify-center" style={{ width: '500px', height: '500px' }}>
 
-              {/* Outer ambient glow */}
-              <div className="absolute inset-0 rounded-full hero-glow-ring" style={{ background: 'radial-gradient(circle, rgba(232,105,26,0.12) 0%, transparent 70%)' }} />
+              {/* Cinematic ambient glow */}
+              <div className="absolute inset-0 rounded-full" style={{
+                background: 'radial-gradient(ellipse at center, rgba(232,105,26,0.28) 0%, rgba(232,105,26,0.08) 45%, transparent 72%)'
+              }} />
 
-              {/* Neon ring */}
-              <div className="absolute rounded-full border-2 border-[#E8691A]/60 hero-glow-ring"
-                style={{ inset: '20px', boxShadow: '0 0 40px rgba(232,105,26,0.4), inset 0 0 40px rgba(232,105,26,0.1)' }} />
-              {/* Inner ring */}
-              <div className="absolute rounded-full border border-[#E8691A]/20" style={{ inset: '50px' }} />
+              {/* Single ring only */}
+              <div className="absolute rounded-full hero-glow-ring" style={{
+                inset: '35px',
+                border: '1.5px solid rgba(232,105,26,0.55)',
+                boxShadow: '0 0 55px rgba(232,105,26,0.45), 0 0 110px rgba(232,105,26,0.12), inset 0 0 55px rgba(232,105,26,0.04)'
+              }} />
 
-              {/* Logo card */}
-              <div className="relative z-10 rounded-3xl p-6 flex items-center justify-center"
-                style={{ background: 'rgba(255,255,255,0.97)', boxShadow: '0 25px 60px rgba(0,0,0,0.5), 0 0 40px rgba(232,105,26,0.2)', width: '260px', height: '260px' }}>
-                <Image src="/logo.png" alt="Snipe Phone" width={220} height={220} className="object-contain w-full h-full" priority />
+              {/* Logo — transparent bg, slight tilt, cinematic shadow */}
+              <div className="relative z-10" style={{ transform: 'rotate(-5deg)' }}>
+                <div style={{
+                  filter: 'drop-shadow(0 0 28px rgba(232,105,26,0.55)) drop-shadow(0 35px 55px rgba(0,0,0,0.65))',
+                  borderRadius: '20px',
+                  overflow: 'hidden'
+                }}>
+                  <Image src="/logo.png" alt="Snipe Phone" width={210} height={210}
+                    className="object-contain" priority style={{ display: 'block', borderRadius: '20px' }} />
+                </div>
+                {/* Shadow / glow puddle below logo */}
+                <div className="absolute left-1/2 -translate-x-1/2" style={{
+                  bottom: '-14px', width: '140px', height: '18px',
+                  background: 'rgba(232,105,26,0.38)', borderRadius: '50%', filter: 'blur(14px)'
+                }} />
               </div>
 
-              {/* Floating icon chips */}
-              <div className="absolute top-6 right-10 bg-[#1e293b]/90 border border-[#E8691A]/30 rounded-2xl p-3.5 hero-float"
-                style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.4), 0 0 15px rgba(232,105,26,0.15)' }}>
-                <Smartphone size={28} className="text-[#E8691A]" />
+              {/* Phone — right, tilted */}
+              <div className="absolute hero-float" style={{
+                right: '10px', top: '38%',
+                transform: 'rotate(10deg)',
+                background: 'linear-gradient(145deg, #1e2d50, #0f172a)',
+                border: '1px solid rgba(232,105,26,0.22)',
+                borderRadius: '20px', padding: '18px',
+                boxShadow: '0 30px 55px rgba(0,0,0,0.65), 0 0 22px rgba(232,105,26,0.12), inset 0 1px 0 rgba(255,255,255,0.04)'
+              }}>
+                <Smartphone size={42} style={{ color: '#E8691A', filter: 'drop-shadow(0 0 8px rgba(232,105,26,0.5))' }} />
               </div>
-              <div className="absolute bottom-16 right-2 bg-[#1e293b]/90 border border-[#E8691A]/30 rounded-2xl p-3.5 hero-float-2"
-                style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.4), 0 0 15px rgba(232,105,26,0.15)' }}>
-                <Laptop size={28} className="text-[#E8691A]" />
+
+              {/* Laptop — bottom, flat */}
+              <div className="absolute hero-float-2" style={{
+                bottom: '18px', left: '50%', transform: 'translateX(-55%)',
+                background: 'linear-gradient(145deg, #1e2d50, #0f172a)',
+                border: '1px solid rgba(232,105,26,0.22)',
+                borderRadius: '20px', padding: '18px',
+                boxShadow: '0 30px 55px rgba(0,0,0,0.65), 0 0 22px rgba(232,105,26,0.12), inset 0 1px 0 rgba(255,255,255,0.04)'
+              }}>
+                <Laptop size={46} style={{ color: '#E8691A', filter: 'drop-shadow(0 0 8px rgba(232,105,26,0.5))' }} />
               </div>
-              <div className="absolute bottom-6 left-14 bg-[#1e293b]/90 border border-[#E8691A]/30 rounded-2xl p-3.5 hero-float-3"
-                style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.4), 0 0 15px rgba(232,105,26,0.15)' }}>
-                <Camera size={28} className="text-[#E8691A]" />
+
+              {/* Headphones — left, tilted opposite */}
+              <div className="absolute hero-float-3" style={{
+                left: '10px', top: '36%',
+                transform: 'rotate(-8deg)',
+                background: 'linear-gradient(145deg, #1e2d50, #0f172a)',
+                border: '1px solid rgba(232,105,26,0.22)',
+                borderRadius: '20px', padding: '18px',
+                boxShadow: '0 30px 55px rgba(0,0,0,0.65), 0 0 22px rgba(232,105,26,0.12), inset 0 1px 0 rgba(255,255,255,0.04)'
+              }}>
+                <Headphones size={42} style={{ color: '#E8691A', filter: 'drop-shadow(0 0 8px rgba(232,105,26,0.5))' }} />
               </div>
-              <div className="absolute top-14 left-2 bg-[#1e293b]/90 border border-[#E8691A]/30 rounded-2xl p-3.5 hero-float-4"
-                style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.4), 0 0 15px rgba(232,105,26,0.15)' }}>
-                <Headphones size={28} className="text-[#E8691A]" />
-              </div>
+
             </div>
           </div>
         </div>
