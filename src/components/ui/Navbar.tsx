@@ -21,18 +21,19 @@ export function Navbar() {
   return (
     <nav className="bg-[#1a2340] shadow-lg sticky top-0 z-50 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-28">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/logo-black.png"
-              alt="Snipe Phone"
-              width={260}
-              height={100}
-              className="h-24 w-auto object-contain"
-              style={{ mixBlendMode: 'screen' }}
-              priority
-            />
+          <Link href="/" className="flex items-center group">
+            <div className="bg-white rounded-2xl px-3 py-2 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(232,105,26,0.4)]">
+              <Image
+                src="/logo.png"
+                alt="Snipe Phone"
+                width={160}
+                height={55}
+                className="h-12 w-auto object-contain"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop nav */}
