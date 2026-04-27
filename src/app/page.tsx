@@ -35,22 +35,23 @@ export default async function HomePage() {
   return (
     <PublicLayout>
       {/* Hero */}
-      <section
-        className="relative text-white overflow-hidden"
-        style={{
-          minHeight: '92vh',
-          backgroundImage: 'url(/hero-bg.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        {/* Subtle dark overlay on the left so text stays readable */}
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(90deg, rgba(10,15,30,0.75) 0%, rgba(10,15,30,0.4) 55%, transparent 100%)' }} />
+      <section className="relative text-white overflow-hidden" style={{ minHeight: '92vh', background: '#0a0f1e' }}>
+        {/* Background image — shifted right so its baked-in text stays hidden under overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/hero-bg.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: '65% center',
+          }}
+        />
+        {/* Strong dark overlay — hides bg text on left, fades out on right */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(90deg, rgba(10,15,30,0.97) 0%, rgba(10,15,30,0.92) 40%, rgba(10,15,30,0.5) 65%, rgba(10,15,30,0.1) 100%)' }}
+        />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-8 items-center w-full">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-8 items-center w-full" style={{ minHeight: '92vh' }}>
 
           {/* LEFT — text */}
           <div className="hero-fade-in">
@@ -59,7 +60,7 @@ export default async function HomePage() {
             </span>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Trouvez Votre{' '}
-              <span className="text-[#E8691A]" style={{ textShadow: '0 0 40px rgba(232,105,26,0.5)' }}>
+              <span className="text-[#E8691A]" style={{ textShadow: '0 0 40px rgba(232,105,26,0.6)' }}>
                 Solution
               </span>
             </h1>
@@ -101,29 +102,15 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* RIGHT — products image + small logo above */}
-          <div className="relative flex items-end justify-center lg:justify-end mt-10 lg:mt-0">
-            {/* Small logo — top-left of the products, not centered */}
-            <div className="absolute top-0 left-4 lg:left-8 z-10" style={{ width: '110px' }}>
-              <Image
-                src="/hero-logo.png"
-                alt="Snipe Phone"
-                width={110}
-                height={110}
-                className="object-contain w-full"
-                style={{ mixBlendMode: 'screen' }}
-                priority
-              />
-            </div>
-
-            {/* Products — main visual element */}
+          {/* RIGHT — products floating */}
+          <div className="hidden lg:flex items-center justify-end">
             <Image
               src="/hero-products.png"
               alt="Nos produits"
-              width={760}
-              height={520}
-              className="object-contain w-full max-w-xl lg:max-w-2xl hero-float"
-              style={{ mixBlendMode: 'screen', filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.5))' }}
+              width={700}
+              height={500}
+              className="object-contain w-full max-w-2xl hero-float"
+              style={{ mixBlendMode: 'screen', filter: 'drop-shadow(0 40px 80px rgba(232,105,26,0.3))' }}
               priority
             />
           </div>
