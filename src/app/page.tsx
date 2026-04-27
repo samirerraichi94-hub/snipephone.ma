@@ -35,65 +35,102 @@ export default async function HomePage() {
   return (
     <PublicLayout>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1a2340] via-[#1e2d50] to-[#111828] text-white py-20 px-4">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="inline-block bg-[#E8691A]/20 text-[#E8691A] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+      <section className="relative bg-gradient-to-br from-[#0f172a] via-[#1a2340] to-[#0f172a] text-white overflow-hidden" style={{ minHeight: '90vh', display: 'flex', alignItems: 'center' }}>
+        {/* Background glows */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#E8691A]/8 rounded-full blur-[140px]" />
+          <div className="absolute left-0 bottom-0 w-[400px] h-[400px] bg-[#E8691A]/5 rounded-full blur-[100px]" />
+          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, rgba(232,105,26,0.06) 0%, transparent 60%)' }} />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-16 items-center w-full">
+          {/* LEFT — text */}
+          <div className="hero-fade-in">
+            <span className="inline-flex items-center gap-2 bg-[#E8691A]/15 text-[#E8691A] text-sm font-semibold px-5 py-2 rounded-full mb-6 border border-[#E8691A]/25 backdrop-blur-sm">
               🎯 Votre tech store à Temara
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Trouvez Votre{' '}
-              <span className="text-[#E8691A]">Solution</span>
+              <span className="text-[#E8691A]" style={{ textShadow: '0 0 40px rgba(232,105,26,0.4)' }}>
+                Solution
+              </span>
             </h1>
-            <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+            <p className="text-gray-400 text-lg mb-10 leading-relaxed max-w-xl">
               Smartphones, accessoires, PC, tablettes, caméras de surveillance — tout ce dont vous avez besoin, disponible à Temara.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mb-12">
               <Link
                 href="/products"
-                className="bg-[#E8691A] text-white px-8 py-3 rounded-xl font-semibold hover:bg-orange-600 transition-colors flex items-center gap-2"
+                className="group bg-[#E8691A] text-white px-8 py-4 rounded-2xl font-bold text-base flex items-center gap-2 transition-all duration-300 hover:bg-orange-500 hover:scale-105"
+                style={{ boxShadow: '0 0 0 rgba(232,105,26,0)' }}
+                onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 0 30px rgba(232,105,26,0.5)')}
+                onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 0 0 rgba(232,105,26,0)')}
               >
-                Voir les produits <ChevronRight size={18} />
+                Voir les produits <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
                 href="https://wa.me/212648045594"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-[#1a2340] transition-colors"
+                className="border-2 border-white/25 text-white px-8 py-4 rounded-2xl font-bold text-base hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
               >
                 Nous contacter
               </a>
             </div>
-            <div className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10">
+            <div className="flex flex-wrap gap-8 pt-8 border-t border-white/10">
               {[
                 { value: '500+', label: 'Produits', icon: <Smartphone size={18} /> },
                 { value: '7', label: 'Catégories', icon: <Star size={18} /> },
-                { value: '100%', label: 'Satisfaction client', icon: <ShieldCheck size={18} /> },
+                { value: '100%', label: 'Satisfaction', icon: <ShieldCheck size={18} /> },
               ].map((stat) => (
                 <div key={stat.label} className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#E8691A]/20 flex items-center justify-center text-[#E8691A]">
+                  <div className="w-11 h-11 rounded-xl bg-[#E8691A]/15 flex items-center justify-center text-[#E8691A] border border-[#E8691A]/20">
                     {stat.icon}
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-[#E8691A]">{stat.value}</p>
-                    <p className="text-gray-400 text-sm">{stat.label}</p>
+                    <p className="text-gray-500 text-sm">{stat.label}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
+
+          {/* RIGHT — glowing ring + logo + floating icons */}
           <div className="hidden lg:flex justify-center items-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-[#E8691A]/30 rounded-full blur-3xl scale-110" />
-              <div className="relative z-10 bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-2xl shadow-orange-500/20 border border-white/50">
-                <Image
-                  src="/logo.png"
-                  alt="Snipe Phone"
-                  width={240}
-                  height={240}
-                  className="w-56 h-56 object-contain"
-                  priority
-                />
+            <div className="relative flex items-center justify-center" style={{ width: '500px', height: '500px' }}>
+
+              {/* Outer ambient glow */}
+              <div className="absolute inset-0 rounded-full hero-glow-ring" style={{ background: 'radial-gradient(circle, rgba(232,105,26,0.12) 0%, transparent 70%)' }} />
+
+              {/* Neon ring */}
+              <div className="absolute rounded-full border-2 border-[#E8691A]/60 hero-glow-ring"
+                style={{ inset: '20px', boxShadow: '0 0 40px rgba(232,105,26,0.4), inset 0 0 40px rgba(232,105,26,0.1)' }} />
+              {/* Inner ring */}
+              <div className="absolute rounded-full border border-[#E8691A]/20" style={{ inset: '50px' }} />
+
+              {/* Logo card */}
+              <div className="relative z-10 rounded-3xl p-6 flex items-center justify-center"
+                style={{ background: 'rgba(255,255,255,0.97)', boxShadow: '0 25px 60px rgba(0,0,0,0.5), 0 0 40px rgba(232,105,26,0.2)', width: '260px', height: '260px' }}>
+                <Image src="/logo.png" alt="Snipe Phone" width={220} height={220} className="object-contain w-full h-full" priority />
+              </div>
+
+              {/* Floating icon chips */}
+              <div className="absolute top-6 right-10 bg-[#1e293b]/90 border border-[#E8691A]/30 rounded-2xl p-3.5 hero-float"
+                style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.4), 0 0 15px rgba(232,105,26,0.15)' }}>
+                <Smartphone size={28} className="text-[#E8691A]" />
+              </div>
+              <div className="absolute bottom-16 right-2 bg-[#1e293b]/90 border border-[#E8691A]/30 rounded-2xl p-3.5 hero-float-2"
+                style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.4), 0 0 15px rgba(232,105,26,0.15)' }}>
+                <Laptop size={28} className="text-[#E8691A]" />
+              </div>
+              <div className="absolute bottom-6 left-14 bg-[#1e293b]/90 border border-[#E8691A]/30 rounded-2xl p-3.5 hero-float-3"
+                style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.4), 0 0 15px rgba(232,105,26,0.15)' }}>
+                <Camera size={28} className="text-[#E8691A]" />
+              </div>
+              <div className="absolute top-14 left-2 bg-[#1e293b]/90 border border-[#E8691A]/30 rounded-2xl p-3.5 hero-float-4"
+                style={{ boxShadow: '0 8px 30px rgba(0,0,0,0.4), 0 0 15px rgba(232,105,26,0.15)' }}>
+                <Headphones size={28} className="text-[#E8691A]" />
               </div>
             </div>
           </div>
@@ -101,25 +138,26 @@ export default async function HomePage() {
       </section>
 
       {/* Categories */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-[#1a2340] mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-[#0f172a] mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Nos Catégories
             </h2>
-            <p className="text-gray-500">Explorez notre gamme complète de produits tech</p>
+            <div className="w-16 h-1 bg-[#E8691A] rounded-full mx-auto mb-3" />
+            <p className="text-gray-500 text-base">Explorez notre gamme complète de produits tech</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
             {((categories as Category[]) ?? []).map((cat) => (
               <Link
                 key={cat.id}
                 href={`/categories/${cat.slug}`}
-                className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-gray-50 hover:bg-[#E8691A]/10 border-2 border-transparent hover:border-[#E8691A] transition-all group text-center"
+                className="group flex flex-col items-center gap-4 p-5 rounded-2xl bg-white border-2 border-transparent hover:border-[#E8691A] hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 text-center"
               >
-                <span className="text-3xl group-hover:scale-110 transition-transform">
-                  {cat.icon ?? fallbackIcons[cat.slug] ?? '📦'}
-                </span>
-                <span className="text-sm font-semibold text-[#1a2340] group-hover:text-[#E8691A] transition-colors">
+                <div className="w-14 h-14 rounded-2xl bg-[#E8691A]/10 flex items-center justify-center text-[#E8691A] group-hover:bg-[#E8691A] group-hover:text-white transition-all duration-300 group-hover:scale-110">
+                  {fallbackIcons[cat.slug] ?? <Smartphone size={28} />}
+                </div>
+                <span className="text-sm font-semibold text-[#1a2340] group-hover:text-[#E8691A] transition-colors leading-tight">
                   {cat.name}
                 </span>
               </Link>
