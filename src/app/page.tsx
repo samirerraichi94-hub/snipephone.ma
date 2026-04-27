@@ -1,10 +1,11 @@
 export const dynamic = 'force-dynamic'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { createClient } from '@/lib/supabase/server'
 import { ProductCard } from '@/components/ui/ProductCard'
 import { PublicLayout } from '@/components/layouts/PublicLayout'
-import { ChevronRight, Smartphone, Headphones, Laptop, Tablet, Camera, Wrench, Tv, Zap } from 'lucide-react'
+import { ChevronRight, Smartphone, Headphones, Laptop, Tablet, Camera, Wrench, Tv, Star, ShieldCheck, Truck } from 'lucide-react'
 import type { Product, Category } from '@/types'
 
 const fallbackIcons: Record<string, React.ReactNode> = {
@@ -65,22 +66,34 @@ export default async function HomePage() {
             </div>
             <div className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10">
               {[
-                { value: '500+', label: 'Produits' },
-                { value: '7', label: 'Catégories' },
-                { value: '100%', label: 'Satisfaction client' },
+                { value: '500+', label: 'Produits', icon: <Smartphone size={18} /> },
+                { value: '7', label: 'Catégories', icon: <Star size={18} /> },
+                { value: '100%', label: 'Satisfaction client', icon: <ShieldCheck size={18} /> },
               ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-2xl font-bold text-[#E8691A]">{stat.value}</p>
-                  <p className="text-gray-400 text-sm">{stat.label}</p>
+                <div key={stat.label} className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#E8691A]/20 flex items-center justify-center text-[#E8691A]">
+                    {stat.icon}
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-[#E8691A]">{stat.value}</p>
+                    <p className="text-gray-400 text-sm">{stat.label}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="hidden lg:flex justify-center">
-            <div className="relative w-80 h-80">
-              <div className="absolute inset-0 bg-[#E8691A]/20 rounded-full blur-3xl" />
-              <div className="relative z-10 flex items-center justify-center h-full">
-                <Zap size={120} className="text-[#E8691A] opacity-80" />
+          <div className="hidden lg:flex justify-center items-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-[#E8691A]/30 rounded-full blur-3xl scale-110" />
+              <div className="relative z-10 bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-2xl shadow-orange-500/20 border border-white/50">
+                <Image
+                  src="/logo.png"
+                  alt="Snipe Phone"
+                  width={240}
+                  height={240}
+                  className="w-56 h-56 object-contain"
+                  priority
+                />
               </div>
             </div>
           </div>

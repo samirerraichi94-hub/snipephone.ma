@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { MapPin, Phone, Mail } from 'lucide-react'
 
 function InstagramIcon({ size = 16 }: { size?: number }) {
@@ -18,10 +19,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <h2 className="text-2xl font-bold text-white font-heading mb-2">
-              Snipe<span className="text-[#E8691A]">Phone</span>
-            </h2>
-            <p className="text-sm text-gray-400 mb-4">Trouvez votre solution</p>
+            <div className="bg-white rounded-xl p-2 inline-block mb-4 shadow-lg">
+              <Image
+                src="/logo.png"
+                alt="Snipe Phone"
+                width={160}
+                height={60}
+                className="h-14 w-auto object-contain"
+              />
+            </div>
             <p className="text-sm text-gray-400">
               Votre spécialiste en téléphones, accessoires, PC, tablettes et caméras de surveillance à Temara.
             </p>

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { Menu, X, Phone } from 'lucide-react'
 
@@ -18,14 +19,21 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <nav className="bg-[#1a2340] shadow-lg sticky top-0 z-50">
+    <nav className="bg-[#1a2340] shadow-lg sticky top-0 z-50 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-white font-heading">
-              Snipe<span className="text-[#E8691A]">Phone</span>
-            </span>
+          <Link href="/" className="flex items-center">
+            <div className="bg-white rounded-xl px-2 py-1.5 shadow-md hover:shadow-orange-500/20 transition-shadow">
+              <Image
+                src="/logo.png"
+                alt="Snipe Phone"
+                width={140}
+                height={48}
+                className="h-11 w-auto object-contain"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop nav */}
